@@ -1,0 +1,20 @@
+curl -XPUT "http://localhost:9200/_template/nyccalls" -H 'Content-Type: application/json' -d'
+{	
+	"order": 1,  	
+	"index_patterns": ["nyccalls*"],	
+	"mappings":	
+	{    		
+		"properties":    		
+		{			
+			"Location": 			
+			{         				
+				"type": "geo_point"      			
+			},			
+			"Created Date":			
+			{			  
+				"type": "date",			  
+				"format": ["yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\""]			
+			}
+		}  	
+	}
+}'
